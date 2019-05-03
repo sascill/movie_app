@@ -1,26 +1,77 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
+import Movie from './Movie';
+import InfiniteLoader from "react-infinite-loader";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  
+  state = {
+    num:1,
+    movies:[],
+    maximumPage:20
+  }
+  
+  componentDidMount(){
+    this._getMovies()
+  }
+
+  _renderMovies = () => {
+    const movies = this.state.movies.map((movie,index) => {
+      return (
+      <Movie 
+       title={movie.title_english}
+       poster={movie.medium_cover_image}
+       key={index} 
+       genres={movie.genres}
+       synopsis={movie.synopsis}
+      />
+      );
+  });
+  return movies
+};
+
+ _getMovies = async () => {
+  let items = this.state.movies.slice();
+  const movies = await this._callApi();
+  items = items.concat(movies);
+  console.log(items);
+  this.setState({
+    movies: items
+  })
 }
+
+_callApi = (page) => {
+    return fetch("https://yts.am/api/v2/list_movies.json?sort_by=download_count&limit=20&page="+page)
+    .then(response => response.json())
+    .then(json => json.data.movies)
+    .catch(err => console.log(err))
+}
+
+_loaditems = () => {
+  if(this.state.num < this.state.maximumPage){
+    this.setState({
+      num: this.state.num + 1,
+    });
+    this._getMovies(this.state.num);
+  }
+  
+};
+
+  render(){ 
+    const {movies} = this.state;
+    return(
+    <div className={movies ? "App" : "App-loading"}>
+      {this.state.movies.length !== 0
+          ? this._renderMovies()
+          : "Loading..."}
+    <div>
+    <InfiniteLoader onVisited = {() => this._loaditems()} />
+    </div>
+    </div>
+    );
+  }
+}
+
+
 
 export default App;
