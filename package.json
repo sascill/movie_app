@@ -6,12 +6,13 @@
     "http-server": "^0.11.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
+    "react-awesome-modal": "^2.0.5",
     "react-dom": "^16.8.6",
     "react-infinite-loader": "^1.0.3",
     "react-lines-ellipsis": "^0.14.1",
+    "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.0",
-    "rollup": "^1.10.1",
-    "yarn": "^1.15.2"
+    "rollup": "^1.10.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -39,5 +40,13 @@
   "homepage": "http://sascill.github.io/movie_app",
   "devDependencies": {
     "gh-pages": "^2.0.1"
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "http://sascill.github.io/movie_app"
+  },
+  "author": "",
+  "license": "ISC"
 }

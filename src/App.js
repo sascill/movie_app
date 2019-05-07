@@ -2,9 +2,11 @@ import React, {Component} from 'react';
 import './App.css';
 import Movie from './Movie';
 import InfiniteLoader from "react-infinite-loader";
+import { Link, Route  } from 'react-router-dom';
+import View from './View';
+
 
 class App extends Component {
-  
   state = {
     num:1,
     movies:[],
@@ -24,6 +26,7 @@ class App extends Component {
        key={index} 
        genres={movie.genres}
        synopsis={movie.synopsis}
+       id={movie.id}
       />
       );
   });
@@ -40,8 +43,8 @@ class App extends Component {
   })
 }
 
-_callApi = (page) => {
-    return fetch("https://yts.am/api/v2/list_movies.json?sort_by=download_count&limit=20&page="+page)
+_callApi = () => {
+    return fetch("https://yts.am/api/v2/list_movies.json?sort_by=download_count")
     .then(response => response.json())
     .then(json => json.data.movies)
     .catch(err => console.log(err))
@@ -66,6 +69,9 @@ _loaditems = () => {
           : "Loading..."}
     <div>
     <InfiniteLoader onVisited = {() => this._loaditems()} />
+    </div>
+    <div>
+    
     </div>
     </div>
     );
