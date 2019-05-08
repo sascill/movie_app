@@ -2,8 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 import Movie from './Movie';
 import InfiniteLoader from "react-infinite-loader";
-import { Link, Route  } from 'react-router-dom';
-import View from './View';
+
 
 
 class App extends Component {
@@ -37,7 +36,6 @@ class App extends Component {
   let items = this.state.movies.slice();
   const movies = await this._callApi();
   items = items.concat(movies);
-  console.log(items);
   this.setState({
     movies: items
   })

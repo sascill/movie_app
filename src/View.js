@@ -1,5 +1,4 @@
 import React, {Component}from 'react';
-import LinesEllipsis from 'react-lines-ellipsis';
 import './movie.css';
 
 function Reply({data}){
@@ -16,7 +15,7 @@ class View extends Component{
   replys: [
   {
     writer: "너",
-    content: "ㅇㅈ노잼",
+    content: "재밌어요!",
     id:this.props.id
   }
 ]
@@ -39,12 +38,12 @@ class View extends Component{
       <hr />
       <div>
         이곳에 입력된 것은 저장 되지 않습니다.<br/>
-        백엔드 기능은 <a href="https://github.com/sascill/movie/tree/master" target="_blank">여기</a>에서 확인해주세요.        
+        백엔드 기능은 <a href="https://github.com/sascill/movie/tree/master" target="_blank" rel="noopener noreferrer">여기</a>에서 확인해주세요.        
       </div>
       <hr />
       <div>
         <div>나</div>
-        <div>이거노잼 ㅋㅋ</div>
+        <div>이거 재밌습니다 ㅋㅋ</div>
       </div>
       <hr />
       <Reply data={this.state.replys}></Reply>

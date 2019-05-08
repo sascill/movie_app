@@ -2,7 +2,6 @@ import React, {Component}  from 'react';
 import PropTypes from 'prop-types';
 import LinesEllipsis from 'react-lines-ellipsis';
 import './movie.css';
-import { Link, Route  } from 'react-router-dom';
 import View from './View';
 import Modal from 'react-awesome-modal';
 
@@ -45,12 +44,10 @@ import Modal from 'react-awesome-modal';
           <div className="Movie__Columns" onClick={() => this.openModal()}>
             <MoviePoster poster={this.props.poster} alt={this.props.title}/>
           </div>
-          <div className="Movie__Columns" onClick={() => this.openModal()}>
-          <Link to={`${this.props.id}`}>
+          <div className="Movie__Columns" onClick={() => this.openModal()}>   
           <h1>{this.props.title}</h1>
-          </Link>
           <div className="Movie__Genres" onClick={() => this.openModal()}>
-          {this.props.genres.map((genres, index) => <MovieGenrel genres={this.props.genres} key={index} />)}
+          {this.props.genres.map((genres, index) => <MovieGenrel genres={genres} key={index}/>)}
           </div>
           <div className="Movie__Synopsis" onClick={() => this.openModal()}>
           <LinesEllipsis
@@ -67,7 +64,6 @@ import Modal from 'react-awesome-modal';
                         <View  
                           title={this.props.title}
                           poster={this.props.poster}
-                          key={this.props.key} 
                           genres={this.props.genres}
                           synopsis={this.props.synopsis}
                           id={this.props.id}></View>
