@@ -100,7 +100,7 @@ _callApi = () => {
 }
  ```
  
- ![Mobile.jpg](./gitimage/Mobile.pg)
+ ![Mobile.jpg](./gitimage/Mobile.jpg)
  
  CSS를 통해 모바일 접근시 콘텐츠 표현방식 변경(한줄)
  
