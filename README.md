@@ -9,7 +9,7 @@
 ### Back-End
 
 * Nodejs(예정)
-* MonggoDB(예정)
+* MongoDB(예정)
 
 ## 주요기능
 * fetch를 이용한 API 호출(원하는 형태로 호출 가능)
