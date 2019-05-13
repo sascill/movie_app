@@ -45,7 +45,9 @@ import Modal from 'react-awesome-modal';
             <MoviePoster poster={this.props.poster} alt={this.props.title}/>
           </div>
           <div className="Movie__Columns" onClick={() => this.openModal()}>   
-          <h1>{this.props.title}</h1>
+          <h1><a href="#" onClick={function(e){
+            e.preventDefault();
+          }}>{this.props.title}</a></h1>
           <div className="Movie__Genres" onClick={() => this.openModal()}>
           {this.props.genres.map((genres, index) => <MovieGenrel genres={genres} key={index}/>)}
           </div>
@@ -59,7 +61,7 @@ import Modal from 'react-awesome-modal';
                       />   
           </div>
         </div>
-        <Modal visible={this.state.visible} width="1000" height="600" effect="fadeInUp" onClickAway={() => this.closeModal()}>
+        <Modal visible={this.state.visible} width="80%" height="90%" effect="fadeInUp" onClickAway={() => this.closeModal()}>
                     <div>
                         <View  
                           title={this.props.title}
@@ -67,7 +69,7 @@ import Modal from 'react-awesome-modal';
                           genres={this.props.genres}
                           synopsis={this.props.synopsis}
                           id={this.props.id}></View>
-                        <a href="javascript:void(0);" onClick={() => this.closeModal()}>Close</a>
+                    <a href="javascript:void(0);" onClick={() => this.closeModal()}>닫기</a>
                     </div>
                 </Modal>
       </div>

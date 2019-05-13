@@ -3,8 +3,6 @@ import './App.css';
 import Movie from './Movie';
 import InfiniteLoader from "react-infinite-loader";
 
-
-
 class App extends Component {
   state = {
     num:1,

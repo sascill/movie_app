@@ -133,13 +133,13 @@
 
 @media screen and (min-width:320px) and (max-width:667px) and (orientation: portrait){
     .Modal_Movie{
-        width:100%;
+        width:85%;
         flex-direction: column;
     }
     .Modal_Movie__Poster{
         top:0;
         left:0;
-        width:30%;
+        width:40%;
     }
     .Modal_Movie__Columns{
         width:100%!important;
